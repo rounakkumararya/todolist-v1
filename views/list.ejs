@@ -5,40 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Document</title>
 </head>
 
 <body>
 
-    <!-- Running code inside the EJS template
 
-    <% if(kindOfDay==="saturday" || kindOfDay==="sunday" ){ %>
-        <h1 style="color:blueviolet">It's <%= kindOfDay %> !</h1>
-        <% }else{ %>
-            <h1 style="color:pink">It's <%= kindOfDay %> !</h1>
-            <% } %> -->
 
-    <h1>
-        <%= kindOfDay %>
-    </h1>
 
-    <ul>
-        <li>Buy Food</li>
-        <li>Cook food</li>
-        <li>Eat Food</li>
+    <div class="box" id="heading">
+        <h1>
+            <%= listTitle %>
+        </h1>
+    </div>
+
+
+    <div class="box">
 
         <% for(var i=0; i<newListItem.length; i++){ %>
-            <li>
-                <%= newListItem[i] %>
-            </li>
+            <div class="item">
+                <input type="checkbox">
+                <p>
+                    <%= newListItem[i] %>
+                </p>
+            </div>
             <%}%>
 
-    </ul>
+                <form class="items" action="/" method="post">
+                    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                    <button type="submit" name="list" value=<%=listTitle %>>+</button>
+                </form>
 
-    <form action="/" method="post">
-        <input type="text" name="newItem">
-        <button type="submit">Add</button>
-    </form>
+    </div>
+
 
 </body>
 
